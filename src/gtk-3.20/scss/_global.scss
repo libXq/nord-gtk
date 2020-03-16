@@ -2,19 +2,37 @@
 
 @import "functions";
 
+//nord colors
+$nord0: #2e3440;
+$nord1: #3b4252;
+$nord2: #434c5e;
+$nord3: #4c566a;
+$nord4: #d8dee9;
+$nord5: #e5e9f0;
+$nord6: #eceff4;
+$nord7: #8fbcbb;
+$nord8: #88c0d0;
+$nord9: #81a1c1;
+$nord10: #5e81ac;
+$nord11: #bf616a;
+$nord12: #d08770;
+$nord13: #ebcb8b;
+$nord14: #a3be8c;
+$nord15: #b48ead;
+
 // default color scheme
-$bg_color: if($variant == "dark", #%FG%, #%BG%);
-$fg_color: if($variant == "dark", #%BG%, #%FG%);
-$base_color: if($variant == "dark", #%TXT_FG%, #%TXT_BG%);
-$text_color: if($variant == "dark", #%TXT_BG%, #%TXT_FG%);
-$button_bg_color: if($variant == "dark", #%BTN_FG%, #%BTN_BG%);
-$button_fg_color: if($variant == "dark", #%BTN_BG%, #%BTN_FG%);
-$header_button_bg_color: #%HDR_BTN_BG%;
-$header_button_fg_color: #%HDR_BTN_FG%;
-$selected_bg_color: #%SEL_BG%;
-$selected_fg_color: #%SEL_FG%;
-$tooltip_bg_color: #%BG%;
-$tooltip_fg_color: #%FG%;
+$bg_color: if($variant == "dark", $nord4, $nord0);
+$fg_color: if($variant == "dark", $nord0, $nord4);
+$base_color: if($variant == "dark", $nord4, $nord1);
+$text_color: if($variant == "dark", $nord0, $nord4);
+$button_bg_color: if($variant == "dark", $nord5, $nord2);
+$button_fg_color: if($variant == "dark", $nord0, $nord4);
+$header_button_bg_color: $button_bg_color;
+$header_button_fg_color: $button_fg_color;
+$selected_bg_color: $nord8;
+$selected_fg_color: $bg_color;
+$tooltip_bg_color: $bg_color;
+$tooltip_fg_color: $fg_color;
 
 // white and black
 //$black: #000;
@@ -23,8 +41,8 @@ $black: shade($fg_color, .4);
 $white: lighten($bg_color, .55);
 
 // dark colors
-$dark_bg_color: #%HDR_BG%;
-$dark_fg_color: #%HDR_FG%;
+$dark_bg_color: $bg_color;
+$dark_fg_color: $fg_color;
 
 // shadows
 /*$dark_shadow: #000;*/
@@ -39,9 +57,9 @@ $borders_color: mix($bg_color, $fg_color, if(lightness($bg_color) < 50%, .18, .1
 $borders_edge: if($variant == 'light', transparentize($white, .2), transparentize($fg_color, .93));
 
 // caret
-$primary_caret_color: #%CARET1_FG%;
-$secondary_caret_color: #%CARET2_FG%;
-$caret_aspect_ratio: %CARET_SIZE%;
+$primary_caret_color: $fg_color;
+$secondary_caret_color: $fg_color;
+$caret_aspect_ratio: 0.04;
 
 /*$button_border_strength: if(lightness($bg) > 50, 0, .1);*/
 /*$button_shadow_strength: if(lightness($bg) > 50, 0, .1);*/
@@ -63,18 +81,18 @@ $switch_fg_color: $text_color;
 $switch_slider_bg_color: mix($text_color, $bg_color, .5);
 
 //$link_color: mix($selected_bg_color, $fg_color, .3);
-$link_color: #%TERMINAL_COLOR4%;
-$success_color: #%TERMINAL_COLOR10%;
-$warning_color: #%TERMINAL_COLOR11%;
-$error_color: #%TERMINAL_COLOR9%;
+$link_color: $nord9;
+$success_color: $nord1;
+$warning_color: $nord13;
+$error_color: $nord11;
 
-$info_fg_color: #%TERMINAL_BACKGROUND%;
-$info_bg_color: #%TERMINAL_COLOR12%;
-$warning_fg_color: #%TERMINAL_BACKGROUND%;
+$info_fg_color: $bg_color;
+$info_bg_color: $nord9;
+$warning_fg_color: $bg_color;
 $warning_bg_color: $warning_color;
-$question_fg_color: #%TERMINAL_BACKGROUND%;
+$question_fg_color: $bg_color;
 $question_bg_color: $info_bg_color;
-$error_fg_color: #%TERMINAL_BACKGROUND%;
+$error_fg_color: $bg_color;
 $error_bg_color: $error_color;
 
 $toolbar_bg_color: $bg_color;
@@ -109,8 +127,8 @@ $lightdm_button_fg_color: $header_button_fg_color;
 
 $wm_bg_focused: $titlebar_bg_focused;
 $wm_bg_unfocused: $titlebar_bg_unfocused;
-$wm_border_focused: #%WM_BORDER_FOCUS%;
-$wm_border_unfocused: #%WM_BORDER_UNFOCUS%;
+$wm_border_focused: $base_color;
+$wm_border_unfocused: $bg_color;
 $wm_title_focused: $titlebar_fg_focused;
 $wm_title_unfocused: $titlebar_fg_unfocused;
 $wm_icons_focused: $titlebar_fg_focused;
@@ -146,15 +164,15 @@ $backdrop_scrollbar_slider_color: mix($backdrop_fg_color, $backdrop_bg_color, .4
 
 $backdrop_menu_color: if($variant == 'light', $backdrop_base_color, mix($backdrop_bg_color, $backdrop_base_color, .2));
 
-$drop_target_color: #%SEL_BG%;
+$drop_target_color: $selected_bg_color;
 
 // widget styles
-$_roundness: %ROUNDNESS%;
-$_spacing: %SPACING%;
-$roundness: %ROUNDNESS%px;
-$spacing: %SPACING%px;
-$gradient: %GRADIENT%;
+$_roundness: 0;
+$_spacing: 3px;
+$roundness: 0;
+$spacing: 3px;
+$gradient: 0;
 $contrast: .8;
-$outline_width: %OUTLINE_WIDTH%px;
-$button_outline_width: %BTN_OUTLINE_WIDTH%px;
-$button_outline_offset: %BTN_OUTLINE_OFFSET%px;
+$outline_width: 0px;
+$button_outline_width: 0px;
+$button_outline_offset: 0px;

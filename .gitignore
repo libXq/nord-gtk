@@ -10,10 +10,4 @@ dist
 pkg/
 *.tar.xz
 
-
-# test-related
-test_results/
-
 scss-link
-
-__pycache__/
